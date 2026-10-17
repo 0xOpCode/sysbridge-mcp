@@ -1,0 +1,21 @@
+# Binaries and build output
+sysbridge-mcp
+sysbridge
+dist/
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test artifacts and coverage
+*.test
+*.out
+coverage.txt
+
+# Local runtime state & secrets
+*.key
+peers.json
+*.sock
+*.tmp
+.DS_Store

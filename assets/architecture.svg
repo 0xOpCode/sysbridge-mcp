@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 520" width="1080" height="520" fill="none">
+  <defs>
+    <linearGradient id="arch-bg" x1="0" y1="0" x2="1080" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B0F17"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0B0F17"/>
+    </linearGradient>
+    <pattern id="arch-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#F8FAFC" stroke-width="0.7" stroke-opacity="0.035"/>
+    </pattern>
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38BDF8"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#F59E0B"/>
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10B981"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas -->
+  <rect x="2" y="2" width="1076" height="516" rx="18" fill="url(#arch-bg)" stroke="#1E293B" stroke-width="2"/>
+  <rect x="2" y="2" width="1076" height="516" rx="18" fill="url(#arch-grid)"/>
+
+  <!-- Header -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">
+    <circle cx="38" cy="36" r="5" fill="#F59E0B"/>
+    <text x="54" y="41" font-size="15" font-weight="800" letter-spacing="1.8" fill="#F8FAFC">SYSBRIDGE-MCP // SYSTEM ARCHITECTURE &amp; DATAPLANE</text>
+    <text x="1044" y="41" text-anchor="end" font-size="12" font-weight="700" letter-spacing="1" fill="#38BDF8">JSON-RPC 2.0 // SFTP-VFS // SSH // MOSH // UDP :42424</text>
+    <line x1="28" y1="58" x2="1052" y2="58" stroke="#1E293B" stroke-width="1.5"/>
+  </g>
+
+  <!-- STAGE 1: AI Agent Clients (x: 28..228) -->
+  <g transform="translate(28, 84)" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">
+    <rect x="0" y="0" width="200" height="364" rx="14" fill="#111827" stroke="#38BDF8" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="42" rx="14" fill="#0B0F17"/>
+    <text x="100" y="26" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="1.2" fill="#38BDF8">1. AI AGENT</text>
+    <line x1="0" y1="42" x2="200" y2="42" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.5"/>
+
+    <text x="100" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="#F8FAFC">AI Agent</text>
+    <text x="100" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#94A3B8">(Claude Code / Cursor / n8n)</text>
+
+    <!-- Client Cards -->
+    <g transform="translate(16, 102)">
+      <rect x="0" y="0" width="168" height="52" rx="8" fill="#0B0F17" stroke="#1E293B" stroke-width="1.5"/>
+      <circle cx="18" cy="26" r="4" fill="#38BDF8"/>
+      <text x="32" y="23" font-size="12" font-weight="700" fill="#F8FAFC">Claude Code</text>
+      <text x="32" y="39" font-size="10" fill="#94A3B8">CLI / Desktop MCP</text>
+    </g>
+
+    <g transform="translate(16, 168)">
+      <rect x="0" y="0" width="168" height="52" rx="8" fill="#0B0F17" stroke="#1E293B" stroke-width="1.5"/>
+      <circle cx="18" cy="26" r="4" fill="#38BDF8"/>
+      <text x="32" y="23" font-size="12" font-weight="700" fill="#F8FAFC">Cursor / Windsurf</text>
+      <text x="32" y="39" font-size="10" fill="#94A3B8">IDE Agent Runtime</text>
+    </g>
+
+    <g transform="translate(16, 234)">
+      <rect x="0" y="0" width="168" height="52" rx="8" fill="#0B0F17" stroke="#1E293B" stroke-width="1.5"/>
+      <circle cx="18" cy="26" r="4" fill="#38BDF8"/>
+      <text x="32" y="23" font-size="12" font-weight="700" fill="#F8FAFC">n8n / Custom SDK</text>
+      <text x="32" y="39" font-size="10" fill="#94A3B8">HTTP / SSE / Socket</text>
+    </g>
+
+    <rect x="16" y="302" width="168" height="44" rx="8" fill="#0B0F17" stroke="#38BDF8" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="100" y="321" text-anchor="middle" font-size="10" font-weight="700" fill="#38BDF8">Tools / Resources</text>
+    <text x="100" y="336" text-anchor="middle" font-size="10" fill="#94A3B8">Prompts / Completions</text>
+  </g>
+
+  <!-- Connector 1 -> 2 -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" font-weight="700">
+    <line x1="228" y1="246" x2="274" y2="246" stroke="#38BDF8" stroke-width="2.5" marker-end="url(#arrow-cyan)"/>
+    <line x1="274" y1="276" x2="228" y2="276" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow-cyan)"/>
+    <text x="251" y="236" text-anchor="middle" fill="#38BDF8">JSON-RPC</text>
+  </g>
+
+  <!-- STAGE 2: sysbridge-mcp Core (x: 278..498) -->
+  <g transform="translate(278, 84)" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">
+    <rect x="0" y="0" width="220" height="364" rx="14" fill="#111827" stroke="#F59E0B" stroke-width="2"/>
+    <rect x="0" y="0" width="220" height="42" rx="14" fill="#0B0F17"/>
+    <text x="110" y="26" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="1.2" fill="#F59E0B">2. SYSBRIDGE-MCP</text>
+    <line x1="0" y1="42" x2="220" y2="42" stroke="#F59E0B" stroke-width="1.5" stroke-opacity="0.5"/>
+
+    <text x="110" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="#F8FAFC">sysbridge-mcp</text>
+    <text x="110" y="82" text-anchor="middle" font-size="9.5" font-weight="600" fill="#94A3B8">(stdio | Streamable HTTP | SSE | Unix)</text>
+
+    <!-- Transport Block -->
+    <g transform="translate(14, 98)">
+      <rect x="0" y="0" width="192" height="68" rx="8" fill="#0B0F17" stroke="#F59E0B" stroke-width="1.2"/>
+      <text x="96" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#F59E0B">Multi-Transport Hub</text>
+      <text x="96" y="38" text-anchor="middle" font-size="10" fill="#F8FAFC">stdio | Streamable HTTP</text>
+      <text x="96" y="54" text-anchor="middle" font-size="10" fill="#94A3B8">Legacy SSE | Unix Socket</text>
+    </g>
+
+    <!-- Registry Block -->
+    <g transform="translate(14, 178)">
+      <rect x="0" y="0" width="192" height="84" rx="8" fill="#0B0F17" stroke="#1E293B" stroke-width="1.5"/>
+      <text x="96" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#38BDF8">MCP Dispatch Engine</text>
+      <text x="96" y="39" text-anchor="middle" font-size="10" fill="#F8FAFC">22 Tools (Sys / VFS / Mesh)</text>
+      <text x="96" y="55" text-anchor="middle" font-size="10" fill="#F8FAFC">6 Live sys:// Resources</text>
+      <text x="96" y="71" text-anchor="middle" font-size="10" fill="#94A3B8">3 Guided Diagnostic Prompts</text>
+    </g>
+
+    <!-- Security & Audit Gate -->
+    <g transform="translate(14, 274)">
+      <rect x="0" y="0" width="192" height="74" rx="8" fill="#0B0F17" stroke="#10B981" stroke-width="1.2"/>
+      <text x="96" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#10B981">Security &amp; Audit Gate</text>
+      <text x="96" y="38" text-anchor="middle" font-size="10" fill="#F8FAFC">Path Traversal &amp; Cmd Guard</text>
+      <text x="96" y="54" text-anchor="middle" font-size="10" fill="#94A3B8">Secret Redaction + 1000-Op Log</text>
+    </g>
+  </g>
+
+  <!-- Connectors 2 -> 3 -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" font-weight="700">
+    <line x1="498" y1="176" x2="544" y2="176" stroke="#F59E0B" stroke-width="2.2" marker-end="url(#arrow-amber)"/>
+    <line x1="498" y1="268" x2="544" y2="268" stroke="#38BDF8" stroke-width="2.2" marker-end="url(#arrow-cyan)"/>
+    <line x1="498" y1="364" x2="544" y2="364" stroke="#10B981" stroke-width="2.2" marker-end="url(#arrow-emerald)"/>
+  </g>
+
+  <!-- STAGE 3: 3-Tier VFS + SSH/Mosh Pool + UDP P2P (x: 548..798) -->
+  <g transform="translate(548, 84)" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">
+    <rect x="0" y="0" width="250" height="364" rx="14" fill="#111827" stroke="#38BDF8" stroke-width="2"/>
+    <rect x="0" y="0" width="250" height="42" rx="14" fill="#0B0F17"/>
+    <text x="125" y="26" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="1" fill="#38BDF8">3. VFS, POOL &amp; P2P MESH</text>
+    <line x1="0" y1="42" x2="250" y2="42" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.5"/>
+
+    <!-- Tier A: 3-Tier VFS -->
+    <g transform="translate(14, 54)">
+      <rect x="0" y="0" width="222" height="96" rx="8" fill="#0B0F17" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="111" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#F59E0B">3-Tier VFS (sftp-vfs | ssh-stream)</text>
+      <text x="111" y="40" text-anchor="middle" font-size="10" fill="#F8FAFC">Tier 1: Native Go SFTP VFS</text>
+      <text x="111" y="56" text-anchor="middle" font-size="10" fill="#F8FAFC">Tier 2: SSH Tar/DD Stream</text>
+      <text x="111" y="72" text-anchor="middle" font-size="10" fill="#94A3B8">Tier 3: Local OS Fallback</text>
+      <text x="111" y="88" text-anchor="middle" font-size="9.5" fill="#10B981">Zero FUSE / Zero Root Mounts</text>
+    </g>
+
+    <!-- Tier B: SSH/Mosh Pool -->
+    <g transform="translate(14, 162)">
+      <rect x="0" y="0" width="222" height="92" rx="8" fill="#0B0F17" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="111" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#38BDF8">SSH/Mosh Pool</text>
+      <text x="111" y="40" text-anchor="middle" font-size="10" fill="#F8FAFC">Multiplexed SSH Keepalive Pool</text>
+      <text x="111" y="56" text-anchor="middle" font-size="10" fill="#F8FAFC">Mosh UDP :60000-61000 Roaming</text>
+      <text x="111" y="74" text-anchor="middle" font-size="10" fill="#94A3B8">Ed25519 / RSA / Agent Auth</text>
+    </g>
+
+    <!-- Tier C: UDP :42424 P2P Discovery -->
+    <g transform="translate(14, 266)">
+      <rect x="0" y="0" width="222" height="84" rx="8" fill="#0B0F17" stroke="#10B981" stroke-width="1.5"/>
+      <text x="111" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#10B981">UDP :42424 P2P Discovery</text>
+      <text x="111" y="40" text-anchor="middle" font-size="10" fill="#F8FAFC">LAN Multicast &amp; Direct Probe</text>
+      <text x="111" y="56" text-anchor="middle" font-size="10" fill="#F8FAFC">Peer Table + Direct Transfer</text>
+      <text x="111" y="72" text-anchor="middle" font-size="10" fill="#94A3B8">Auto-Registers SSH Endpoints</text>
+    </g>
+  </g>
+
+  <!-- Connectors 3 -> 4 -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10" font-weight="700">
+    <line x1="798" y1="176" x2="848" y2="176" stroke="#F59E0B" stroke-width="2.2" marker-end="url(#arrow-amber)"/>
+    <text x="823" y="167" text-anchor="middle" fill="#F59E0B">:22</text>
+
+    <line x1="798" y1="268" x2="848" y2="268" stroke="#38BDF8" stroke-width="2.2" marker-end="url(#arrow-cyan)"/>
+    <text x="823" y="259" text-anchor="middle" fill="#38BDF8">MOSH</text>
+
+    <line x1="798" y1="364" x2="848" y2="364" stroke="#10B981" stroke-width="2.2" marker-end="url(#arrow-emerald)"/>
+    <text x="823" y="355" text-anchor="middle" fill="#10B981">:42424</text>
+  </g>
+
+  <!-- STAGE 4: Target Host (x: 852..1052) -->
+  <g transform="translate(852, 84)" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">
+    <rect x="0" y="0" width="200" height="364" rx="14" fill="#111827" stroke="#10B981" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="42" rx="14" fill="#0B0F17"/>
+    <text x="100" y="26" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="1.2" fill="#10B981">4. TARGET HOST</text>
+    <line x1="0" y1="42" x2="200" y2="42" stroke="#10B981" stroke-width="1.5" stroke-opacity="0.5"/>
+
+    <text x="100" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#F8FAFC">Target Host</text>
+    <text x="100" y="79" text-anchor="middle" font-size="9" font-weight="600" fill="#94A3B8">(Arch Workstation / Cloud VPS /</text>
+    <text x="100" y="92" text-anchor="middle" font-size="9" font-weight="600" fill="#10B981">Android Termux - Zero Install Default)</text>
+
+    <!-- Target 1: Arch Workstation -->
+    <g transform="translate(14, 106)">
+      <rect x="0" y="0" width="172" height="68" rx="8" fill="#0B0F17" stroke="#1E293B" stroke-width="1.5"/>
+      <circle cx="16" cy="20" r="4" fill="#10B981"/>
+      <text x="28" y="24" font-size="11" font-weight="700" fill="#F8FAFC">Arch Workstation</text>
+      <text x="16" y="42" font-size="9.5" fill="#94A3B8">pacman / systemd / sensors</text>
+      <text x="16" y="56" font-size="9.5" fill="#38BDF8">Standard sshd :22</text>
+    </g>
+
+    <!-- Target 2: Cloud VPS / Bare Metal -->
+    <g transform="translate(14, 186)">
+      <rect x="0" y="0" width="172" height="68" rx="8" fill="#0B0F17" stroke="#1E293B" stroke-width="1.5"/>
+      <circle cx="16" cy="20" r="4" fill="#38BDF8"/>
+      <text x="28" y="24" font-size="11" font-weight="700" fill="#F8FAFC">Cloud VPS / Linux</text>
+      <text x="16" y="42" font-size="9.5" fill="#94A3B8">apt / dnf / apk / journalctl</text>
+      <text x="16" y="56" font-size="9.5" fill="#F59E0B">Zero Agent Daemon Req.</text>
+    </g>
+
+    <!-- Target 3: Android Termux -->
+    <g transform="translate(14, 266)">
+      <rect x="0" y="0" width="172" height="82" rx="8" fill="#0B0F17" stroke="#F59E0B" stroke-width="1.2"/>
+      <circle cx="16" cy="20" r="4" fill="#F59E0B"/>
+      <text x="28" y="24" font-size="11" font-weight="700" fill="#F8FAFC">Android Termux</text>
+      <text x="16" y="42" font-size="9.5" fill="#94A3B8">$PREFIX/bin + pkg manager</text>
+      <text x="16" y="56" font-size="9.5" fill="#94A3B8">termux-battery-status</text>
+      <text x="16" y="70" font-size="9.5" fill="#10B981">sshd :8022 Non-Root</text>
+    </g>
+  </g>
+
+  <!-- Bottom Pipeline Summary Bar -->
+  <g transform="translate(28, 466)" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="700">
+    <rect x="0" y="0" width="1024" height="32" rx="8" fill="#0B0F17" stroke="#1E293B" stroke-width="1.5"/>
+    <text x="512" y="20" text-anchor="middle" fill="#94A3B8">
+      <tspan fill="#38BDF8">AI Agent</tspan> -&gt; <tspan fill="#F59E0B">sysbridge-mcp</tspan> -&gt; <tspan fill="#38BDF8">3-Tier VFS + SSH/Mosh Pool + UDP :42424 P2P Discovery</tspan> -&gt; <tspan fill="#10B981">Target Host (Zero Install Default)</tspan>
+    </text>
+  </g>
+</svg>
