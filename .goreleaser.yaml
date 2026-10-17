@@ -15,7 +15,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X main.version={{.Version}} -X main.commit={{.ShortCommit}} -X main.date={{.Date}}
+      - -s -w -X main.Version={{.Version}}
     goos:
       - linux
       - darwin
@@ -76,21 +76,6 @@ nfpms:
     contents:
       - src: ./LICENSE
         dst: /usr/share/licenses/sysbridge-mcp/LICENSE
-
-brews:
-  - name: sysbridge-mcp
-    repository:
-      owner: 0xOpCode
-      name: homebrew-tap
-      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
-    directory: Formula
-    homepage: https://github.com/0xOpCode/sysbridge-mcp
-    description: Zero-install remote OS, SFTP VFS, and P2P mesh server for AI agents over MCP
-    license: MIT
-    install: |
-      bin.install "sysbridge-mcp"
-    test: |
-      system "#{bin}/sysbridge-mcp", "--version"
 
 changelog:
   sort: asc
