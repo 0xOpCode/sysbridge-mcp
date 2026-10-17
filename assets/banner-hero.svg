@@ -1,131 +1,194 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400">
   <defs>
-    <linearGradient id="hero-bg" x1="0" y1="0" x2="1280" y2="360" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0B0F17"/>
-      <stop offset="50%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0B0F17"/>
+    <linearGradient id="kawaiiSky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF9F5"/>
+      <stop offset="48%" stop-color="#FFF0F5"/>
+      <stop offset="100%" stop-color="#F0F9FF"/>
     </linearGradient>
-    <linearGradient id="hero-beam" x1="88" y1="180" x2="296" y2="180" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#38BDF8"/>
-      <stop offset="50%" stop-color="#F59E0B"/>
-      <stop offset="100%" stop-color="#10B981"/>
-    </linearGradient>
-    <linearGradient id="accent-line" x1="360" y1="0" x2="1220" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#F59E0B"/>
-      <stop offset="45%" stop-color="#38BDF8"/>
-      <stop offset="85%" stop-color="#10B981"/>
-      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
-    </linearGradient>
-    <radialGradient id="emblem-glow" cx="192" cy="180" r="150" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.20"/>
-      <stop offset="60%" stop-color="#38BDF8" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#0B0F17" stop-opacity="0"/>
+
+    <radialGradient id="sunAura" cx="72%" cy="46%" r="42%">
+      <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.75"/>
+      <stop offset="55%" stop-color="#FBCFE8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FFF9F5" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="hero-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#F8FAFC" stroke-width="0.75" stroke-opacity="0.035"/>
-    </pattern>
+
+    <linearGradient id="rainbowBridge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF9EBB"/>
+      <stop offset="35%" stop-color="#FFC085"/>
+      <stop offset="70%" stop-color="#8CE99A"/>
+      <stop offset="100%" stop-color="#85D8FF"/>
+    </linearGradient>
+
+    <linearGradient id="pastelWater" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="50%" stop-color="#D8F3DC"/>
+      <stop offset="100%" stop-color="#E0F2FE"/>
+    </linearGradient>
   </defs>
 
-  <!-- Background Frame -->
-  <rect x="2" y="2" width="1276" height="356" rx="20" fill="url(#hero-bg)" stroke="#1E293B" stroke-width="2"/>
-  <rect x="2" y="2" width="1276" height="356" rx="20" fill="url(#hero-grid)"/>
-  <circle cx="192" cy="180" r="150" fill="url(#emblem-glow)"/>
+  <!-- Soft Rounded Kawaii Frame -->
+  <rect width="1280" height="400" rx="28" fill="url(#kawaiiSky)"/>
+  <rect x="6" y="6" width="1268" height="388" rx="24" fill="none" stroke="#FBCFE8" stroke-width="3"/>
+  <circle cx="920" cy="185" r="240" fill="url(#sunAura)"/>
 
-  <!-- Right-Side Decorative Mesh Topology Circuit -->
-  <g opacity="0.28" stroke-linecap="round">
-    <path d="M 1020 40 L 1090 40 L 1130 80 L 1240 80" stroke="#38BDF8" stroke-width="1.5"/>
-    <path d="M 1060 320 L 1120 320 L 1160 280 L 1240 280" stroke="#10B981" stroke-width="1.5"/>
-    <circle cx="1090" cy="40" r="3.5" fill="#38BDF8"/>
-    <circle cx="1130" cy="80" r="3.5" fill="#38BDF8"/>
-    <circle cx="1120" cy="320" r="3.5" fill="#10B981"/>
-    <circle cx="1160" cy="280" r="3.5" fill="#10B981"/>
+  <!-- Background Pastel Hills on Right -->
+  <path d="M 520 400 Q 740 270 960 320 T 1280 285 L 1280 400 Z" fill="#EDE9FE" fill-opacity="0.8"/>
+  <path d="M 560 400 Q 820 305 1040 345 T 1280 325 L 1280 400 Z" fill="#DCFCE7" fill-opacity="0.85"/>
+  <path d="M 590 400 Q 860 345 1100 365 T 1280 355 L 1280 400 Z" fill="url(#pastelWater)"/>
+
+  <!-- Four-Point Kawaii Star Sparkles -->
+  <g fill="#FBBF24">
+    <path d="M 625 68 Q 625 82 639 82 Q 625 82 625 96 Q 625 82 611 82 Q 625 82 625 68 Z"/>
+    <path d="M 1185 62 Q 1185 74 1197 74 Q 1185 74 1185 86 Q 1185 74 1173 74 Q 1185 74 1185 62 Z"/>
+    <path d="M 885 42 Q 885 51 894 51 Q 885 51 885 60 Q 885 51 876 51 Q 885 51 885 42 Z" fill="#F472B6"/>
+    <circle cx="670" cy="54" r="5" fill="#F9A8D4"/>
+    <circle cx="1050" cy="55" r="5" fill="#93C5FD"/>
+    <circle cx="575" cy="145" r="4.5" fill="#86EFAC"/>
   </g>
 
-  <!-- Left Bridge + Mesh Node Emblem -->
-  <g transform="translate(0, 0)">
-    <!-- Outer Hex Frame -->
-    <polygon points="192,46 308,113 308,247 192,314 76,247 76,113" fill="#0B0F17" fill-opacity="0.65" stroke="#1E293B" stroke-width="2"/>
-    <polygon points="192,58 298,119 298,241 192,302 86,241 86,119" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
-
-    <!-- Mesh Arcs -->
-    <path d="M 126 130 C 162 84, 222 84, 258 130" fill="none" stroke="#38BDF8" stroke-width="1.75" stroke-dasharray="4 4"/>
-    <path d="M 126 230 C 162 276, 222 276, 258 230" fill="none" stroke="#10B981" stroke-width="1.75" stroke-dasharray="4 4"/>
-
-    <!-- Left Hex Node -->
-    <polygon points="126,122 168,146 168,214 126,238 84,214 84,146" fill="#111827" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round"/>
-    <line x1="126" y1="122" x2="126" y2="180" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.55"/>
-    <line x1="84" y1="214" x2="126" y2="180" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.55"/>
-    <line x1="168" y1="214" x2="126" y2="180" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.55"/>
-    <circle cx="126" cy="180" r="7" fill="#0B0F17" stroke="#38BDF8" stroke-width="2.5"/>
-    <circle cx="126" cy="180" r="2.5" fill="#F8FAFC"/>
-
-    <!-- Right Hex Node -->
-    <polygon points="258,122 300,146 300,214 258,238 216,214 216,146" fill="#111827" stroke="#10B981" stroke-width="2.5" stroke-linejoin="round"/>
-    <line x1="258" y1="122" x2="258" y2="180" stroke="#10B981" stroke-width="1.2" stroke-opacity="0.55"/>
-    <line x1="216" y1="214" x2="258" y2="180" stroke="#10B981" stroke-width="1.2" stroke-opacity="0.55"/>
-    <line x1="300" y1="214" x2="258" y2="180" stroke="#10B981" stroke-width="1.2" stroke-opacity="0.55"/>
-    <circle cx="258" cy="180" r="7" fill="#0B0F17" stroke="#10B981" stroke-width="2.5"/>
-    <circle cx="258" cy="180" r="2.5" fill="#F8FAFC"/>
-
-    <!-- Bridge Beam & Central Nexus -->
-    <line x1="158" y1="166" x2="226" y2="166" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.8"/>
-    <line x1="133" y1="180" x2="251" y2="180" stroke="url(#hero-beam)" stroke-width="4"/>
-    <line x1="158" y1="194" x2="226" y2="194" stroke="#10B981" stroke-width="1.5" stroke-opacity="0.8"/>
-    <polygon points="192,152 216,180 192,208 168,180" fill="#0B0F17" stroke="#F59E0B" stroke-width="2.5" stroke-linejoin="round"/>
-    <polygon points="192,162 207,180 192,198 177,180" fill="#F59E0B" fill-opacity="0.22" stroke="#F8FAFC" stroke-width="1"/>
-    <circle cx="192" cy="180" r="4" fill="#F59E0B"/>
+  <!-- Cute Smiling Fluffy Cloud (Top Center-Right) -->
+  <g transform="translate(690, 44)">
+    <path d="M 20 52 C 5 52 0 36 14 28 C 22 10 50 8 62 24 C 78 16 98 28 96 44 C 108 46 108 58 94 58 L 20 58 Z" fill="#FFFFFF" stroke="#475569" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="44" cy="39" r="2.6" fill="#334155"/>
+    <circle cx="64" cy="39" r="2.6" fill="#334155"/>
+    <ellipse cx="37" cy="43" rx="4.5" ry="2.5" fill="#FDA4AF"/>
+    <ellipse cx="71" cy="43" rx="4.5" ry="2.5" fill="#FDA4AF"/>
+    <path d="M 50 42 Q 54 46 58 42" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
   </g>
 
-  <!-- Vertical Divider -->
-  <line x1="340" y1="56" x2="340" y2="304" stroke="#1E293B" stroke-width="1.5"/>
+  <!-- ==================== LEFT SIDE: KAWAII TYPOGRAPHY & CANDY PILLS ==================== -->
+  <g font-family="'DejaVu Sans', 'Segoe UI', sans-serif">
+    <!-- Top Cute Pill Badges -->
+    <g transform="translate(56, 46)">
+      <rect x="0" y="0" width="142" height="34" rx="17" fill="#FCE7F3" stroke="#F472B6" stroke-width="2"/>
+      <text x="71" y="22" text-anchor="middle" font-size="13.5" font-weight="800" fill="#9D174D" letter-spacing="0.8">ZERO INSTALL</text>
 
-  <!-- Top Telemetry Eyebrow -->
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="2">
-    <circle cx="372" cy="84" r="4" fill="#10B981"/>
-    <text x="386" y="88" fill="#10B981">MCP PROTOCOL v2025-03-26</text>
-    <text x="610" y="88" fill="#475569">//</text>
-    <text x="636" y="88" fill="#F59E0B">GO 1.24 STATIC BINARY</text>
-    <text x="840" y="88" fill="#475569">//</text>
-    <text x="866" y="88" fill="#38BDF8">ARCH / LINUX / MACOS / TERMUX</text>
+      <rect x="154" y="0" width="124" height="34" rx="17" fill="#DCFCE7" stroke="#4ADE80" stroke-width="2"/>
+      <text x="216" y="22" text-anchor="middle" font-size="13.5" font-weight="800" fill="#166534" letter-spacing="0.8">GOLANG</text>
+
+      <rect x="290" y="0" width="152" height="34" rx="17" fill="#EDE9FE" stroke="#A78BFA" stroke-width="2"/>
+      <text x="366" y="22" text-anchor="middle" font-size="13.5" font-weight="800" fill="#5B21B6" letter-spacing="0.8">MCP SERVER</text>
+    </g>
+
+    <!-- Title with Soft Pastel Shadow -->
+    <text x="59" y="153" font-size="64" font-weight="800" fill="#F9A8D4" letter-spacing="-1.5">sysbridge-mcp</text>
+    <text x="56" y="150" font-size="64" font-weight="800" fill="#1E293B" letter-spacing="-1.5">sysbridge-mcp</text>
+
+    <!-- Subtitle -->
+    <text x="56" y="194" font-size="21" font-weight="700" fill="#334155">One AI agent. Every machine you own.</text>
+    <text x="56" y="224" font-size="15" fill="#64748B">Mountless SFTP VFS, detached tmux builds &amp; P2P UDP mesh</text>
+
+    <!-- 2x2 Kawaii Feature Sticker Pills -->
+    <g transform="translate(56, 254)">
+      <!-- Sticker 1 -->
+      <rect x="0" y="0" width="236" height="50" rx="25" fill="#FFFFFF" stroke="#F9A8D4" stroke-width="2.5"/>
+      <circle cx="28" cy="25" r="14" fill="#FCE7F3"/>
+      <text x="28" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#BE185D">FS</text>
+      <text x="52" y="31" font-size="15.5" font-weight="700" fill="#334155">Mountless SFTP VFS</text>
+
+      <!-- Sticker 2 -->
+      <rect x="250" y="0" width="236" height="50" rx="25" fill="#FFFFFF" stroke="#FDBA74" stroke-width="2.5"/>
+      <circle cx="278" cy="25" r="14" fill="#FFEDD5"/>
+      <text x="278" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#C2410C">5s</text>
+      <text x="302" y="31" font-size="15.5" font-weight="700" fill="#334155">Auto-Detach Tmux</text>
+
+      <!-- Sticker 3 -->
+      <rect x="0" y="62" width="236" height="50" rx="25" fill="#FFFFFF" stroke="#86EFAC" stroke-width="2.5"/>
+      <circle cx="28" cy="87" r="14" fill="#DCFCE7"/>
+      <text x="28" y="92" text-anchor="middle" font-size="13" font-weight="800" fill="#15803D">P2P</text>
+      <text x="52" y="93" font-size="15.5" font-weight="700" fill="#334155">Sub-1ms UDP Mesh</text>
+
+      <!-- Sticker 4 -->
+      <rect x="250" y="62" width="236" height="50" rx="25" fill="#FFFFFF" stroke="#93C5FD" stroke-width="2.5"/>
+      <circle cx="278" cy="87" r="14" fill="#DBEAFE"/>
+      <text x="278" y="92" text-anchor="middle" font-size="13" font-weight="800" fill="#1D4ED8">KEY</text>
+      <text x="302" y="93" font-size="15.5" font-weight="700" fill="#334155">PAM SSH Key Sudo</text>
+    </g>
   </g>
 
-  <!-- Main Title -->
-  <text x="366" y="162" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="68" font-weight="900" letter-spacing="3" fill="#F8FAFC">SYSBRIDGE<tspan fill="#F59E0B">-</tspan>MCP</text>
+  <!-- ==================== RIGHT SIDE: KAWAII BRIDGE & MASCOTS ILLUSTRATION ==================== -->
+  <g transform="translate(595, 25)">
+    <!-- Soft Sun Behind Bridge -->
+    <circle cx="330" cy="165" r="88" fill="#FEF3C7" stroke="#FDE68A" stroke-width="3"/>
 
-  <!-- Subtitle -->
-  <text x="368" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="1.6" fill="#94A3B8">ZERO-INSTALL REMOTE OS, SFTP VFS &amp; P2P MESH FOR AI AGENTS</text>
+    <!-- Arched Rainbow Bridge -->
+    <path d="M 135 295 L 135 190 Q 330 105 525 190 L 525 295 L 485 295 A 52 58 0 0 0 380 295 L 358 295 A 45 66 0 0 0 302 295 L 280 295 A 52 58 0 0 0 175 295 Z" fill="#FFFDF9" stroke="#334155" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 118 192 Q 330 102 542 192" fill="none" stroke="url(#rainbowBridge)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 122 184 Q 330 94 538 184" fill="none" stroke="#334155" stroke-width="2.8" stroke-linecap="round"/>
 
-  <!-- Accent Rule -->
-  <rect x="368" y="224" width="840" height="2" fill="url(#accent-line)"/>
+    <!-- Cute Hanging Star Lanterns on Bridge -->
+    <line x1="230" y1="154" x2="230" y2="128" stroke="#334155" stroke-width="2.5"/>
+    <circle cx="230" cy="122" r="8" fill="#FEF08A" stroke="#334155" stroke-width="2.2"/>
+    <line x1="330" y1="138" x2="330" y2="108" stroke="#334155" stroke-width="2.5"/>
+    <circle cx="330" cy="102" r="9.5" fill="#FEF08A" stroke="#334155" stroke-width="2.2"/>
+    <line x1="430" y1="154" x2="430" y2="128" stroke="#334155" stroke-width="2.5"/>
+    <circle cx="430" cy="122" r="8" fill="#FEF08A" stroke="#334155" stroke-width="2.2"/>
 
-  <!-- 4 Technical Pill Badges -->
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" font-weight="700" letter-spacing="1">
-    <!-- Badge 1: STDIO / HTTP / SSE -->
-    <g transform="translate(368, 250)">
-      <rect x="0" y="0" width="196" height="38" rx="19" fill="#111827" stroke="#38BDF8" stroke-width="1.5"/>
-      <circle cx="20" cy="19" r="4.5" fill="#38BDF8"/>
-      <text x="34" y="24" fill="#F8FAFC">STDIO / HTTP / SSE</text>
+    <!-- Cute Paper Airplane Gliding Over Bridge -->
+    <g transform="translate(295, 58)">
+      <polygon points="0,24 46,8 24,38 18,26" fill="#FBCFE8" stroke="#334155" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M -38 36 Q -18 28 -6 25" fill="none" stroke="#F472B6" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
     </g>
 
-    <!-- Badge 2: MOUNTLESS SFTP VFS -->
-    <g transform="translate(580, 250)">
-      <rect x="0" y="0" width="204" height="38" rx="19" fill="#111827" stroke="#F59E0B" stroke-width="1.5"/>
-      <circle cx="20" cy="19" r="4.5" fill="#F59E0B"/>
-      <text x="34" y="24" fill="#F8FAFC">MOUNTLESS SFTP VFS</text>
+    <!-- LEFT ISLAND: Kawaii Pocket Bot (Phone / Termux) -->
+    <g transform="translate(15, 145)">
+      <ellipse cx="95" cy="165" rx="88" ry="26" fill="#FFEDD5" stroke="#334155" stroke-width="2.8"/>
+      <ellipse cx="95" cy="160" rx="72" ry="18" fill="#FEF3C7"/>
+
+      <!-- Cute Sprout on Left Island -->
+      <path d="M 22 152 Q 8 128 28 118 Q 38 134 22 152 Z" fill="#86EFAC" stroke="#334155" stroke-width="2"/>
+
+      <!-- Kawaii Pocket Phone Body -->
+      <rect x="44" y="28" width="102" height="134" rx="24" fill="#FFFFFF" stroke="#334155" stroke-width="3.2"/>
+      <rect x="54" y="42" width="82" height="98" rx="16" fill="#FFF1F2" stroke="#F472B6" stroke-width="2.2"/>
+
+      <!-- Cute Antenna on Top of Phone -->
+      <line x1="95" y1="28" x2="95" y2="12" stroke="#334155" stroke-width="3"/>
+      <circle cx="95" cy="9" r="7" fill="#FF9EBB" stroke="#334155" stroke-width="2.4"/>
+
+      <!-- Kawaii Mochi Agent Face Inside Screen -->
+      <circle cx="95" cy="84" r="26" fill="#FEF08A" stroke="#334155" stroke-width="2.5"/>
+      <circle cx="85" cy="80" r="3.5" fill="#1E293B"/>
+      <circle cx="105" cy="80" r="3.5" fill="#1E293B"/>
+      <circle cx="83.8" cy="78.8" r="1.2" fill="#FFFFFF"/>
+      <circle cx="103.8" cy="78.8" r="1.2" fill="#FFFFFF"/>
+      <ellipse cx="77" cy="86" rx="5" ry="2.8" fill="#FB7185"/>
+      <ellipse cx="113" cy="86" rx="5" ry="2.8" fill="#FB7185"/>
+      <path d="M 89 86 Q 95 92 101 86" fill="none" stroke="#1E293B" stroke-width="2.3" stroke-linecap="round"/>
+
+      <!-- Island Label Pill -->
+      <rect x="23" y="172" width="144" height="30" rx="15" fill="#FFFFFF" stroke="#334155" stroke-width="2.4"/>
+      <text x="95" y="192" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="13.5" font-weight="800" fill="#9A3412">Pocket Agent</text>
     </g>
 
-    <!-- Badge 3: SSH + MOSH ROAMING -->
-    <g transform="translate(800, 250)">
-      <rect x="0" y="0" width="204" height="38" rx="19" fill="#111827" stroke="#10B981" stroke-width="1.5"/>
-      <circle cx="20" cy="19" r="4.5" fill="#10B981"/>
-      <text x="34" y="24" fill="#F8FAFC">SSH + MOSH ROAMING</text>
-    </g>
+    <!-- RIGHT ISLAND: Kawaii Workstation & Plush Mochi Companion -->
+    <g transform="translate(455, 145)">
+      <ellipse cx="105" cy="165" rx="96" ry="26" fill="#D1FAE5" stroke="#334155" stroke-width="2.8"/>
+      <ellipse cx="105" cy="160" rx="78" ry="18" fill="#E0F2FE"/>
 
-    <!-- Badge 4: UDP :42424 MESH -->
-    <g transform="translate(1020, 250)">
-      <rect x="0" y="0" width="176" height="38" rx="19" fill="#111827" stroke="#F59E0B" stroke-width="1.5"/>
-      <circle cx="20" cy="19" r="4.5" fill="#F59E0B"/>
-      <text x="34" y="24" fill="#F8FAFC">UDP :42424 MESH</text>
+      <!-- Kawaii Monitor -->
+      <rect x="34" y="34" width="142" height="102" rx="20" fill="#FFFFFF" stroke="#334155" stroke-width="3.2"/>
+      <rect x="46" y="46" width="118" height="76" rx="12" fill="#EEF2FF" stroke="#818CF8" stroke-width="2.2"/>
+
+      <!-- Cute Pastel Code & Heart Blocks Inside Monitor -->
+      <rect x="56" y="56" width="46" height="24" rx="6" fill="#FCE7F3" stroke="#F472B6" stroke-width="1.8"/>
+      <rect x="108" y="56" width="46" height="24" rx="6" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.8"/>
+      <rect x="56" y="88" width="98" height="22" rx="6" fill="#FEF3C7" stroke="#FBBF24" stroke-width="1.8"/>
+
+      <!-- Kawaii Eyes & Smile on Monitor Bezel / Companion -->
+      <circle cx="92" cy="100" r="2.8" fill="#1E293B"/>
+      <circle cx="118" cy="100" r="2.8" fill="#1E293B"/>
+      <ellipse cx="85" cy="103" rx="4" ry="2.2" fill="#FB7185"/>
+      <ellipse cx="125" cy="103" rx="4" ry="2.2" fill="#FB7185"/>
+      <path d="M 101 101 Q 105 105 109 101" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- Monitor Stand -->
+      <path d="M 90 136 L 82 158 L 128 158 L 120 136 Z" fill="#CBD5E1" stroke="#334155" stroke-width="2.8" stroke-linejoin="round"/>
+      <rect x="68" y="158" width="74" height="8" rx="4" fill="#94A3B8" stroke="#334155" stroke-width="2.4"/>
+
+      <!-- Island Label Pill -->
+      <rect x="23" y="172" width="164" height="30" rx="15" fill="#FFFFFF" stroke="#334155" stroke-width="2.4"/>
+      <text x="105" y="192" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="13.5" font-weight="800" fill="#065F46">Linux PC / Cloud VPS</text>
     </g>
   </g>
 </svg>
