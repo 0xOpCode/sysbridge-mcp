@@ -164,6 +164,7 @@ func (p *Pool) GetSSHClient(ctx context.Context, peerName string) (*ssh.Client, 
 	}
 
 	client := ssh.NewClient(sshConn, chans, reqs)
+	setupClientAgentForwarding(client, peer)
 
 	p.mu.Lock()
 	p.conns[peer.Name] = &pooledConn{
@@ -246,11 +247,7 @@ func (p *Pool) Exec(ctx context.Context, peerName string, command string, opts E
 		if opts.Sudo && peer.Sudo.Mode == "disabled" {
 			return nil, fmt.Errorf("sudo execution rejected: sudo.mode is 'disabled' for peer %q", peer.Name)
 		}
-		sockPath := resolveAgentSock(peer)
-		if sockPath != "" {
-			_ = agent.ForwardToRemote(sshClient, sockPath)
-			_ = agent.RequestAgentForwarding(session)
-		}
+		_ = agent.RequestAgentForwarding(session)
 	}
 
 	wrappedCmd := buildRemoteShellCommand(command, opts)
@@ -486,12 +483,36 @@ func buildRemoteShellCommand(command string, opts ExecOptions) string {
 		b.WriteString(fmt.Sprintf("cd %s && ", shellQuote(opts.Cwd)))
 	}
 	if opts.Sudo {
-		b.WriteString("sudo -E /bin/sh -c ")
+		b.WriteString("sudo -n -E /bin/sh -c ")
 		b.WriteString(shellQuote(command))
 	} else {
 		b.WriteString(command)
 	}
 	return b.String()
+}
+
+func setupClientAgentForwarding(client *ssh.Client, peer *config.PeerConfig) {
+	if peer == nil || peer.Sudo.Mode == "disabled" {
+		return
+	}
+	keyring := agent.NewKeyring()
+	added := 0
+	if keyFile := resolveIdentityFile(peer); keyFile != "" {
+		if keyData, err := os.ReadFile(keyFile); err == nil {
+			if rawKey, pErr := ssh.ParseRawPrivateKey(keyData); pErr == nil {
+				if addErr := keyring.Add(agent.AddedKey{PrivateKey: rawKey}); addErr == nil {
+					added++
+				}
+			}
+		}
+	}
+	if added > 0 {
+		_ = agent.ForwardToAgent(client, keyring)
+		return
+	}
+	if sockPath := resolveAgentSock(peer); sockPath != "" {
+		_ = agent.ForwardToRemote(client, sockPath)
+	}
 }
 
 func shellQuote(s string) string {

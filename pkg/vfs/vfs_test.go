@@ -71,7 +71,7 @@ func TestWriteAndReadFile(t *testing.T) {
 		t.Fatalf("expected 4 total lines, got %d", rRes.TotalLines)
 	}
 
-	sliceRes, err := eng.ReadFile(ctx, "local-peer", target, 1, 2)
+	sliceRes, err := eng.ReadFile(ctx, "local-peer", target, 2, 2)
 	if err != nil {
 		t.Fatalf("ReadFile slice failed: %v", err)
 	}

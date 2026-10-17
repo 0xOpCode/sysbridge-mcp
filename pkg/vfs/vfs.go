@@ -212,9 +212,9 @@ func (e *Engine) ReadFile(ctx context.Context, peerName, targetPath string, offs
 		}, nil
 	}
 
-	startIdx := offset
-	if startIdx < 0 {
-		startIdx = 0
+	startIdx := 0
+	if offset > 1 {
+		startIdx = offset - 1
 	}
 	if startIdx > totalLines {
 		startIdx = totalLines
