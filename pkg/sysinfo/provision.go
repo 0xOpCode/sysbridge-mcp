@@ -217,7 +217,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/env sysbridge-mcp daemon --udp-port %d
+ExecStart=/usr/bin/env sysbridge-mcp daemon --port %d
 Restart=always
 RestartSec=5
 
@@ -255,6 +255,8 @@ func buildPamSSHSudoScript(detectedOS string, moduleInstalled bool, pubKey strin
 		keyLine = "# Replace with controller SSH public key (e.g. ssh-ed25519 AAAA...)"
 	}
 
+	b.WriteString("chown root:root /etc\n")
+	b.WriteString("chmod 0755 /etc\n")
 	b.WriteString("install -d -m 0755 -o root -g root /etc/security\n")
 	b.WriteString("touch /etc/security/authorized_keys\n")
 	b.WriteString("chown root:root /etc/security/authorized_keys\n")

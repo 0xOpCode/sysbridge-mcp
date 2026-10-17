@@ -92,6 +92,82 @@ CGO_ENABLED=0 go build -ldflags="-s -w" -o sysbridge-mcp ./cmd/sysbridge-mcp
 
 ---
 
+## 🎯 Complete User Setup Guide: 3 Progressive Tiers
+
+You can use `sysbridge-mcp` in three progressive tiers depending on how much control you want over the remote machine.
+
+### Tier 1: Zero-Install SSH Mode (Any Cloud VPS, Linux PC, or macOS Host)
+**Best for:** Production VPS servers, cloud VMs, or shared machines where you do not want to install extra software or use `sudo`.
+- **Target Machine Requirements:** Standard `sshd` and your SSH public key in `~/.ssh/authorized_keys`. Nothing is installed on the remote machine.
+- **Controller Setup (`~/.config/sysbridge/config.yaml`):**
+  ```yaml
+  default_peer: "my_vps"
+  peers:
+    my_vps:
+      name: "my_vps"
+      host: "203.0.113.42"          # IP or domain name
+      user: "ubuntu"                # Normal non-root user
+      ssh_port: 22
+      auth:
+        method: "key"
+        identity_file: "~/.ssh/id_ed25519"
+      sudo:
+        mode: "disabled"            # Strictly non-sudo
+      vfs:
+        backend: "auto"             # Uses sftp-vfs, falls back to ssh-stream
+        workspace_root: "/home/ubuntu/projects"
+  ```
+- **Or register dynamically from chat without touching config:**
+  Ask your agent: *"Connect to peer `my_vps` at `203.0.113.42` with user `ubuntu` and save config."* (`peer_connect` tool).
+- **What you get immediately:** Full `fs_read`, `fs_write`, `fs_edit`, `fs_multi_edit`, `fs_search`, `fs_ops`, `exec_run` (with automatic `nohup` backgrounding for commands `>5s`), and native Go SSH port tunnels (`tunnel_manage`).
+
+---
+
+### Tier 2: Unbreakable Roaming Workstation (`tmux` + `mosh` + `rg` + `rsync`)
+**Best for:** Heavy compilation, kernel/Docker builds, and coding over mobile hotspots or unstable Wi-Fi.
+1. Ask your agent to audit the remote machine:
+   ```text
+   Run peer_provision with action="audit" on peer "laptop"
+   ```
+2. Install the standard packages on the target machine if missing:
+   - **Arch Linux:** `sudo pacman -S tmux mosh ripgrep rsync`
+   - **Ubuntu / Debian:** `sudo apt install tmux mosh ripgrep rsync`
+   - **macOS:** `brew install tmux mosh ripgrep rsync`
+- **What this unlocks:**
+  - Commands running longer than `5s` detach into named `tmux` sessions (`/tmp/sysbridge_<id>.log`) that you can inspect, tail, or send keystrokes to via `task_control`.
+  - `mosh_control` spawns `mosh-server` over UDP `60000:61000` so interactive terminal sessions survive IP changes and laptop sleep.
+  - `fs_search` accelerates content search using `rg` (ripgrep), and `sync_transfer` uses delta `rsync`.
+
+---
+
+### Tier 3: Full P2P Mesh (`<1ms` Zero-IP-Hunt) + Cryptographic Agent Sudo
+**Best for:** Phone (Termux) <-> Laptop / Homelab setups where IPs change constantly across Wi-Fi, Hotspot, and USB Tethering.
+
+#### Step A: Enable Bidirectional UDP `:42424` Mesh Discovery (Rootless)
+1. Generate a shared 256-bit HMAC key on Machine A:
+   ```bash
+   mkdir -p ~/.config/sysbridge && chmod 700 ~/.config/sysbridge
+   sysbridge-mcp keygen > ~/.config/sysbridge/secret.key
+   chmod 600 ~/.config/sysbridge/secret.key
+   ```
+2. Copy the same `~/.config/sysbridge/secret.key` to Machine B and install `sysbridge-mcp` on Machine B (`curl -fsSL https://raw.githubusercontent.com/0xOpCode/sysbridge-mcp/main/install.sh | sh`).
+3. Ask the agent to enable the rootless user-level mesh service on Machine B:
+   ```text
+   Run peer_provision with action="setup_user_mesh" and apply=true on peer "laptop"
+   ```
+   *(This creates and starts `~/.config/systemd/user/sysbridge-mesh.service` running `sysbridge-mcp daemon --port 42424` without root).*
+4. Set `host: "auto"` in your peer config. Both machines now discover each other's live IP in `<1ms` via signed UDP beacons and Linux Netlink interface bursts.
+
+#### Step B: Optional Cryptographic Passwordless Sudo (`pam_ssh_agent_auth`)
+If you want your agent to run `sudo` commands on the remote workstation when connected with your SSH key, without setting `NOPASSWD: ALL` for local console users:
+1. Ask the agent to generate or apply the PAM configuration:
+   ```text
+   Run peer_provision with action="setup_pam_ssh_sudo" on peer "laptop"
+   ```
+2. Ensure `/etc` and `/etc/security` are owned by `root:root` with mode `0755` (`pam_ssh_agent_auth.so` rejects authentication if `/etc` is group-writable `0775`), your public key is in `/etc/security/authorized_keys`, and `sudo.mode: "agent_forward"` is set in `config.yaml`.
+
+---
+
 ## 🔌 Multi-Protocol MCP Transports
 
 `sysbridge-mcp` implements every MCP transport protocol in a single static binary:
