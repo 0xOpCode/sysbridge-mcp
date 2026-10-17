@@ -1,8 +1,8 @@
 # Binaries and build output
-sysbridge-mcp
-sysbridge
-dist/
-bin/
+/sysbridge-mcp
+/sysbridge
+/dist/
+/bin/
 *.exe
 *.dll
 *.so

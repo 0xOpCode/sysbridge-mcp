@@ -77,7 +77,7 @@ jobs:
           EXT: ${{ matrix.ext }}
         run: |
           mkdir -p dist
-          go build -trimpath -ldflags="-s -w -X main.version=${GITHUB_SHA::8}" \
+          go build -trimpath -ldflags="-s -w -X main.Version=${GITHUB_SHA::8}" \
             -o "dist/sysbridge-mcp-${GOOS}-${GOARCH}${EXT}" \
             ./cmd/sysbridge-mcp
         shell: bash
