@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" fill="none">
+  <defs>
+    <linearGradient id="hero-bg" x1="0" y1="0" x2="1280" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B0F17"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0B0F17"/>
+    </linearGradient>
+    <linearGradient id="hero-beam" x1="88" y1="180" x2="296" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="accent-line" x1="360" y1="0" x2="1220" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="45%" stop-color="#38BDF8"/>
+      <stop offset="85%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="emblem-glow" cx="192" cy="180" r="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="#38BDF8" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0B0F17" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="hero-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#F8FAFC" stroke-width="0.75" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Frame -->
+  <rect x="2" y="2" width="1276" height="356" rx="20" fill="url(#hero-bg)" stroke="#1E293B" stroke-width="2"/>
+  <rect x="2" y="2" width="1276" height="356" rx="20" fill="url(#hero-grid)"/>
+  <circle cx="192" cy="180" r="150" fill="url(#emblem-glow)"/>
+
+  <!-- Right-Side Decorative Mesh Topology Circuit -->
+  <g opacity="0.28" stroke-linecap="round">
+    <path d="M 1020 40 L 1090 40 L 1130 80 L 1240 80" stroke="#38BDF8" stroke-width="1.5"/>
+    <path d="M 1060 320 L 1120 320 L 1160 280 L 1240 280" stroke="#10B981" stroke-width="1.5"/>
+    <circle cx="1090" cy="40" r="3.5" fill="#38BDF8"/>
+    <circle cx="1130" cy="80" r="3.5" fill="#38BDF8"/>
+    <circle cx="1120" cy="320" r="3.5" fill="#10B981"/>
+    <circle cx="1160" cy="280" r="3.5" fill="#10B981"/>
+  </g>
+
+  <!-- Left Bridge + Mesh Node Emblem -->
+  <g transform="translate(0, 0)">
+    <!-- Outer Hex Frame -->
+    <polygon points="192,46 308,113 308,247 192,314 76,247 76,113" fill="#0B0F17" fill-opacity="0.65" stroke="#1E293B" stroke-width="2"/>
+    <polygon points="192,58 298,119 298,241 192,302 86,241 86,119" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Mesh Arcs -->
+    <path d="M 126 130 C 162 84, 222 84, 258 130" fill="none" stroke="#38BDF8" stroke-width="1.75" stroke-dasharray="4 4"/>
+    <path d="M 126 230 C 162 276, 222 276, 258 230" fill="none" stroke="#10B981" stroke-width="1.75" stroke-dasharray="4 4"/>
+
+    <!-- Left Hex Node -->
+    <polygon points="126,122 168,146 168,214 126,238 84,214 84,146" fill="#111827" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="126" y1="122" x2="126" y2="180" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.55"/>
+    <line x1="84" y1="214" x2="126" y2="180" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.55"/>
+    <line x1="168" y1="214" x2="126" y2="180" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.55"/>
+    <circle cx="126" cy="180" r="7" fill="#0B0F17" stroke="#38BDF8" stroke-width="2.5"/>
+    <circle cx="126" cy="180" r="2.5" fill="#F8FAFC"/>
+
+    <!-- Right Hex Node -->
+    <polygon points="258,122 300,146 300,214 258,238 216,214 216,146" fill="#111827" stroke="#10B981" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="258" y1="122" x2="258" y2="180" stroke="#10B981" stroke-width="1.2" stroke-opacity="0.55"/>
+    <line x1="216" y1="214" x2="258" y2="180" stroke="#10B981" stroke-width="1.2" stroke-opacity="0.55"/>
+    <line x1="300" y1="214" x2="258" y2="180" stroke="#10B981" stroke-width="1.2" stroke-opacity="0.55"/>
+    <circle cx="258" cy="180" r="7" fill="#0B0F17" stroke="#10B981" stroke-width="2.5"/>
+    <circle cx="258" cy="180" r="2.5" fill="#F8FAFC"/>
+
+    <!-- Bridge Beam & Central Nexus -->
+    <line x1="158" y1="166" x2="226" y2="166" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.8"/>
+    <line x1="133" y1="180" x2="251" y2="180" stroke="url(#hero-beam)" stroke-width="4"/>
+    <line x1="158" y1="194" x2="226" y2="194" stroke="#10B981" stroke-width="1.5" stroke-opacity="0.8"/>
+    <polygon points="192,152 216,180 192,208 168,180" fill="#0B0F17" stroke="#F59E0B" stroke-width="2.5" stroke-linejoin="round"/>
+    <polygon points="192,162 207,180 192,198 177,180" fill="#F59E0B" fill-opacity="0.22" stroke="#F8FAFC" stroke-width="1"/>
+    <circle cx="192" cy="180" r="4" fill="#F59E0B"/>
+  </g>
+
+  <!-- Vertical Divider -->
+  <line x1="340" y1="56" x2="340" y2="304" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- Top Telemetry Eyebrow -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" font-weight="600" letter-spacing="2">
+    <circle cx="372" cy="84" r="4" fill="#10B981"/>
+    <text x="386" y="88" fill="#10B981">MCP PROTOCOL v2025-03-26</text>
+    <text x="610" y="88" fill="#475569">//</text>
+    <text x="636" y="88" fill="#F59E0B">GO 1.24 STATIC BINARY</text>
+    <text x="840" y="88" fill="#475569">//</text>
+    <text x="866" y="88" fill="#38BDF8">ARCH / LINUX / MACOS / TERMUX</text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="366" y="162" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="68" font-weight="900" letter-spacing="3" fill="#F8FAFC">SYSBRIDGE<tspan fill="#F59E0B">-</tspan>MCP</text>
+
+  <!-- Subtitle -->
+  <text x="368" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="1.6" fill="#94A3B8">ZERO-INSTALL REMOTE OS, SFTP VFS &amp; P2P MESH FOR AI AGENTS</text>
+
+  <!-- Accent Rule -->
+  <rect x="368" y="224" width="840" height="2" fill="url(#accent-line)"/>
+
+  <!-- 4 Technical Pill Badges -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" font-weight="700" letter-spacing="1">
+    <!-- Badge 1: STDIO / HTTP / SSE -->
+    <g transform="translate(368, 250)">
+      <rect x="0" y="0" width="196" height="38" rx="19" fill="#111827" stroke="#38BDF8" stroke-width="1.5"/>
+      <circle cx="20" cy="19" r="4.5" fill="#38BDF8"/>
+      <text x="34" y="24" fill="#F8FAFC">STDIO / HTTP / SSE</text>
+    </g>
+
+    <!-- Badge 2: MOUNTLESS SFTP VFS -->
+    <g transform="translate(580, 250)">
+      <rect x="0" y="0" width="204" height="38" rx="19" fill="#111827" stroke="#F59E0B" stroke-width="1.5"/>
+      <circle cx="20" cy="19" r="4.5" fill="#F59E0B"/>
+      <text x="34" y="24" fill="#F8FAFC">MOUNTLESS SFTP VFS</text>
+    </g>
+
+    <!-- Badge 3: SSH + MOSH ROAMING -->
+    <g transform="translate(800, 250)">
+      <rect x="0" y="0" width="204" height="38" rx="19" fill="#111827" stroke="#10B981" stroke-width="1.5"/>
+      <circle cx="20" cy="19" r="4.5" fill="#10B981"/>
+      <text x="34" y="24" fill="#F8FAFC">SSH + MOSH ROAMING</text>
+    </g>
+
+    <!-- Badge 4: UDP :42424 MESH -->
+    <g transform="translate(1020, 250)">
+      <rect x="0" y="0" width="176" height="38" rx="19" fill="#111827" stroke="#F59E0B" stroke-width="1.5"/>
+      <circle cx="20" cy="19" r="4.5" fill="#F59E0B"/>
+      <text x="34" y="24" fill="#F8FAFC">UDP :42424 MESH</text>
+    </g>
+  </g>
+</svg>

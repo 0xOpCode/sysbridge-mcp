@@ -1,0 +1,89 @@
+# sysbridge-mcp Example Configuration
+# Place at ~/.config/sysbridge/config.yaml
+# All paths are rootless user-space XDG paths by default.
+
+server:
+  transport: "stdio"                # stdio | http | sse | dual | unix
+  listen: "127.0.0.1:8787"
+  unix_socket: "~/.cache/sysbridge/sysbridge.sock"
+  auth_token_env: "SYSBRIDGE_TOKEN" # Optional Bearer token for HTTP/SSE modes
+  tool_profile: "full"              # full | core | readonly
+
+mesh:
+  enabled: true
+  node_name: "mobile-controller"
+  role: "phone"
+  udp_port: 42424
+  beacon_interval_sec: 10
+  secret_key_path: "~/.config/sysbridge/secret.key"
+  state_path: "~/.cache/sysbridge/peers.json"
+  manage_etc_hosts: false           # Set true only if /etc/hosts is writable
+  netlink_burst: true
+
+default_peer: "laptop"
+
+peers:
+  # Mode B Peer: Workstation with UDP mesh discovery, Mosh, and pam_ssh_agent_auth sudo
+  laptop:
+    name: "laptop"
+    host: "auto"                    # 7-stage cascade resolver (UDP Mesh -> /etc/hosts -> Cache -> USB -> Hotspot/ADB -> Subnet)
+    domains:
+      - "laptop.local"
+      - "daemon.local"
+    user: "akash"
+    ssh_port: 22
+    mosh_port: 60000
+    auth:
+      method: "key"
+      identity_file: "~/.ssh/id_ed25519"
+      ssh_agent_sock: "/tmp/ssh-agent-shared.sock"
+    sudo:
+      mode: "agent_forward"         # disabled | agent_forward (pam_ssh_agent_auth)
+    vfs:
+      backend: "auto"               # auto (sftp-vfs -> ssh-stream) | sftp-vfs | ssh-stream | local-mount
+      workspace_root: "/home/akash"
+      downloads_dir: "/home/akash/Downloads"
+    discovery_hints:
+      wifi_mac: "00:e0:29:2d:04:f8"
+      usb_mac: "1a:9a:3a:63:52:a0"
+      adb_neighbor_lookup: true
+
+  # Mode A Peer: Standard Cloud VPS (Zero remote install, non-sudo, pure SSH/SFTP)
+  cloud_vps:
+    name: "cloud_vps"
+    host: "203.0.113.42"
+    domains:
+      - "vps.local"
+    user: "deploy"
+    ssh_port: 22
+    mosh_port: 60000
+    auth:
+      method: "key"
+      identity_file: "~/.ssh/id_ed25519"
+    sudo:
+      mode: "disabled"
+    vfs:
+      backend: "auto"
+      workspace_root: "/srv/app"
+      downloads_dir: "/tmp"
+
+execution:
+  auto_detach_ms: 5000              # Commands running >5s auto-detach to tmux or nohup
+  detached_backend: "auto"          # auto (tmux -> nohup) | tmux | nohup
+  default_shell: "/bin/sh"
+  tmux_prefix: "sysbridge"
+  keepalive_sec: 5
+  pool_size: 4
+
+safety:
+  blocked_devices:
+    - "/dev/sda"
+    - "/dev/sda1"
+    - "/dev/sda2"
+  blocked_paths:
+    - "/boot/efi"
+  confirm_destructive: true
+
+alerts:
+  wayland_notify: true
+  webhook_url_env: "SYSBRIDGE_WEBHOOK_URL"

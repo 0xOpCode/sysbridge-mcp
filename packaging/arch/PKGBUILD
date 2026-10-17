@@ -1,0 +1,32 @@
+# Maintainer: Akash Deep <https://github.com/0xOpCode>
+pkgname=sysbridge-mcp
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Zero-install remote OS, mountless SFTP VFS, SSH/Mosh runner, and P2P mesh MCP server in Go"
+arch=('x86_64' 'aarch64' 'armv7h')
+url="https://github.com/0xOpCode/sysbridge-mcp"
+license=('MIT')
+makedepends=('go')
+optdepends=(
+  'openssh: SSH fallback and key management'
+  'mosh: Roaming UDP terminal sessions'
+  'tmux: Detached remote task execution'
+  'rsync: Fast delta directory synchronization'
+)
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+  cd "$pkgname-$pkgver"
+  export CGO_ENABLED=0
+  export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
+  go build -ldflags="-s -w -X main.Version=$pkgver" -o sysbridge-mcp ./cmd/sysbridge-mcp
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  install -Dm755 sysbridge-mcp "$pkgdir/usr/bin/sysbridge-mcp"
+  ln -s /usr/bin/sysbridge-mcp "$pkgdir/usr/bin/sysbridge"
+  install -Dm644 configs/config.example.yaml "$pkgdir/usr/share/doc/$pkgname/config.example.yaml"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

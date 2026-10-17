@@ -1,0 +1,104 @@
+version: 2
+
+project_name: sysbridge-mcp
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: sysbridge-mcp
+    main: ./cmd/sysbridge-mcp
+    binary: sysbridge-mcp
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.ShortCommit}} -X main.date={{.Date}}
+    goos:
+      - linux
+      - darwin
+      - windows
+      - freebsd
+    goarch:
+      - amd64
+      - arm64
+      - "386"
+      - arm
+    goarm:
+      - "7"
+    ignore:
+      - goos: darwin
+        goarch: "386"
+      - goos: darwin
+        goarch: arm
+      - goos: windows
+        goarch: arm
+      - goos: freebsd
+        goarch: arm
+
+archives:
+  - id: default
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}
+    formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    files:
+      - LICENSE
+      - README.md
+      - install.sh
+
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+nfpms:
+  - id: packages
+    package_name: sysbridge-mcp
+    vendor: 0xOpCode
+    homepage: https://github.com/0xOpCode/sysbridge-mcp
+    maintainer: Akash Deep <0xOpCode@users.noreply.github.com>
+    description: Zero-install remote OS, SFTP VFS, and P2P mesh server for AI agents over MCP.
+    license: MIT
+    formats:
+      - deb
+      - rpm
+      - apk
+    bindir: /usr/bin
+    contents:
+      - src: ./LICENSE
+        dst: /usr/share/licenses/sysbridge-mcp/LICENSE
+
+brews:
+  - name: sysbridge-mcp
+    repository:
+      owner: 0xOpCode
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    directory: Formula
+    homepage: https://github.com/0xOpCode/sysbridge-mcp
+    description: Zero-install remote OS, SFTP VFS, and P2P mesh server for AI agents over MCP
+    license: MIT
+    install: |
+      bin.install "sysbridge-mcp"
+    test: |
+      system "#{bin}/sysbridge-mcp", "--version"
+
+changelog:
+  sort: asc
+  use: github
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^chore:'
+      - Merge pull request
+      - Merge branch
